@@ -1,5 +1,3 @@
-connect system/admin;
-
 drop user buses cascade;
 
 create user buses identified by buses;
