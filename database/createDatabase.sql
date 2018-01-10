@@ -27,6 +27,7 @@ create table companies(
 create table routes(
     id number primary key,
     companyId number not null,
+    description varchar2(100),
     startLatitude float not null,
     startLongitude float not null,
     endLatitude float not null,
