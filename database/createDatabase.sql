@@ -1,3 +1,4 @@
+
 drop user buses cascade;
 
 create user buses identified by buses;
@@ -10,44 +11,48 @@ connect buses/buses;
 
 CREATE SEQUENCE seq START WITH 1 INCREMENT BY 1;
 
-create table users(
+create table usuarios(
     id number primary key,
-    email varchar2(50) unique not null,
-    name varchar2(50) not null,
-    password varchar2(256) not null
+    correo varchar2(50) unique not null,
+    nombre varchar2(50) not null,
+    apellidos varchar2(50) not null,
+    contrasena varchar2(256) not null
 );
 
-create table companies(
+create table companias(
     id number primary key,
-    name varchar2(50) not null
+    nombre varchar2(50) not null,
+    correo varchar2(50) not null,
+    contrasena varchar2(256) not null,
+    telefono varchar2(50) not null
 );
 
-create table routes(
+create table rutas(
     id number primary key,
-    companyId number not null,
-    description varchar2(100),
-    startLatitude float not null,
-    startLongitude float not null,
-    endLatitude float not null,
-    endLongitude float not null,
-    estimatedTime number,
-    CONSTRAINT fk_routes_company FOREIGN KEY (companyId) REFERENCES companies(id)
+    companiaId number not null,
+    descripccion varchar2(100),
+    latitudInicio float not null,
+    longitudInicio float not null,
+    latitudFinal float not null,
+    longitudFinal float not null,
+    tiempoEstimado number,
+    CONSTRAINT fk_rutas_companias FOREIGN KEY (companiaId) REFERENCES companias(id)
 );
 
-create table schedules(
+create table horarios(
     id number primary key,
-    routeId number not null,
-    hour timestamp not null,
-    CONSTRAINT fk_schedules_routes FOREIGN KEY (routeId) REFERENCES routes(id)
+    rutaId number not null,
+    hora timestamp not null,
+    CONSTRAINT fk_horarios_rutas FOREIGN KEY (rutaId) REFERENCES rutas(id)
 );
 
-create table comments(
+create table comentarios(
     id number primary key,
-    userId number not nulL,
-    routeId number not null,
-    content varchar2(250),
-    time timestamp not null,
-    CONSTRAINT fk_comments_user FOREIGN KEY (userId) REFERENCES users(id),
-    CONSTRAINT fk_comments_routes FOREIGN KEY (routeId) REFERENCES routes(id)
+    usuarioId number not nulL,
+    rutaId number not null,
+    comentario varchar2(250),
+    fecha timestamp not null,
+    CONSTRAINT fk_comentarios_usuarios FOREIGN KEY (usuarioId) REFERENCES usuarios(id),
+    CONSTRAINT fk_comentarios_rutas FOREIGN KEY (rutaId) REFERENCES rutas(id)
 );
 
