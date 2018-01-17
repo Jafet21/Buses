@@ -13,8 +13,14 @@ public class Configuraciones {
 
     @SneakyThrows
     public static Connection configurarBaseDeDatos(){
-        Class.forName("oracle.jdbc.driver.OracleDriver");
-        return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","buses","buses");
+        
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","buses","buses");
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        
     }
 
     public static VelocityTemplateEngine configurarTemplateEngine(){

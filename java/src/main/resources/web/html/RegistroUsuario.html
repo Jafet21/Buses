@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Registrar Usuario</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        
+        <link rel="stylesheet" href="../css/main.css" />
+        <link href="../css/css.css" rel="stylesheet" type="text/css"/>
+    </head>
+    
+    <body>
+        <!-- Wrapper -->
+        <div id="wrapper">
+            <!-- Main -->
+            <div id="main">
+                <div class="inner">
+                    <!-- Header -->
+                    <header id="header">
+                        <a href="RegistroUsuario.html" class="logo"><strong>Registrar Usuario</strong></a>
+                        <ul class="icons">
+                            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                        </ul>
+                    </header>
+                    
+                    <br />
+                    <br />
+                    
+                   <!-- Form -->
+                   <div class="box">
+                   <h3 class="centrarTexto" >Datos Personales</h3>
+                   <form  method="post" action="#">
+                       <div class="row uniform">
+                           
+                           <div class="6u$ 12u$(small)">
+                               <label  for="id">Identificación:</label>
+                           </div>
+                           <div class="6u$ 12u$(xsmall)">
+                               <input type="text" id="identificacion" placeholder="0-0000-0000" name="id">
+                           </div>
+                           
+                           <div class="6u$ 12u$(small)">
+                               <label  for="nombre">Nombre:</label>
+                           </div>
+                           <div class="6u$ 12u$(xsmall)">
+                               <input type="text" id="nombreUsuario" placeholder="Nombre" name="nombre">
+                           </div>
+                           
+                           <div  class="6u$ 12u$(small)">
+                               <label  for="apellidos">Apellidos:</label>
+                           </div>
+                           <div class="6u$ 12u$(xsmall)">
+                               <input type="text" id="apellidos" placeholder="Apellidos" name="pApellido">
+                           </div>
+                           
+                            <div class="6u$ 12u$(small)">
+                                <label  for="contrasena">Contraseña:</label>
+                            </div>
+                           <div class="6u$ 12u$(xsmall)">
+                               <input type="text" class="form-control" id="contrasena" placeholder="Contrasena" name="contrasena">
+                           </div>
+                           
+                           <div class="6u$ 12u$(small)" >
+                               <label  for="email">Correo:</label>
+                           </div>
+                           <div class="6u$ 12u$(xsmall)">
+                               <input type="email" class="form-control" id="email" placeholder="Correo Electronico" name="email">
+                           </div>
+                           
+                           
+                          
+                           
+                           <div class="6u$ 12u$(medium)">
+                               <ul class="actions">
+                                   <button onclick='registrarUsuario();'>Registrarme</button>
+                                   <button onclick='registrarUsuario();'>Canselar</button>
+                               </ul>
+                            </div>
+                           
+                           
+                           
+                        </div>
+                    </form>
+                   </div>  
+                </div>
+            </div>
+
+<!-- Sidebar -->
+            <div id="sidebar">
+                <div class="inner">
+                    <!-- Search -->
+                    <section id="search" class="alt">
+                        <form method="post" action="#">
+                            <input type="text" name="query" id="query" placeholder="Search" />
+                        </form>
+                    </section>
+                    
+                    <!-- Menu -->
+                    <nav id="menu">
+                        <header class="major">
+                            <h2>Menu</h2>
+                        </header>
+                        <ul>
+                            <li><a href="Inicio.html">Inicio</a></li>
+                            <li><a href="Servicios.html">Servicios</a></li>
+                            <li><a href="Cuidades.html">Cuidades</a></li>
+                            <li>
+                                <span class="opener">Registrarse</span>
+                                <ul>
+                                    <li><a href="RegistroUsuario.html">Registrar Usuario</a></li>
+                                    <li><a href="RegistroEmpresa.html">Registrar Empresa</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="Contactenos.html">Contactenos</a></li>
+                        </ul>
+                    </nav>
+                    
+<!-- Section -->
+                   <section>
+                       <header class="major">
+                           <h2>Información General</h2>
+                       </header>
+                       <p>Recibimos sus comentarios y sugerecias hacerca de nuestro servicio.</p>
+                       <ul class="contact">
+                           <li class="fa-envelope-o"><a href="#">horariobus@buses.com</a></li>
+                           <li class="fa-phone">(+506) 2222-0000</li>
+                           <li class="fa-home"> Heredia,Costa Rica</li>
+                       </ul>
+                   </section>
+
+                   
+                   <!-- Footer -->
+                   <footer id="footer">
+                       <p class="copyright"> Derechos Reservados &copy;·   
+                           <a href="Inicio.html">Horarios Transportes Publicos</a></p>
+                   </footer>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scripts -->
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/skel.min.js"></script>
+        <script src="../js/util.js"></script>
+        <script src="../js/main.js"></script>
+        
+        
+    </body>
+</html>
