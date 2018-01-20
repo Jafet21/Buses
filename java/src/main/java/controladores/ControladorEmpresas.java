@@ -14,11 +14,7 @@ public class ControladorEmpresas {
     }
 
     public void registrarEmpresa(Request request, Response response){
-        Empresa empresa = Empresa.builder()
-                .correo(request.queryParams("correo"))
-                .nombre(request.queryParams("nombre"))
-                .telefono(request.queryParams("telefono"))
-                .build();
+      
 
         //repositorioEmpresas.insertarEmpresa(empresa);
     }

@@ -1,7 +1,6 @@
 package config;
 
 import com.google.gson.Gson;
-import lombok.SneakyThrows;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.sql.Connection;
@@ -9,9 +8,12 @@ import java.sql.DriverManager;
 
 //Aqui es para separar un poco las configuraciones generales, cualquier otra cosa meterla aca
 
+import oracle.jdbc.driver.OracleDriver;
+
+
 public class Configuraciones {
 
-    @SneakyThrows
+  
     public static Connection configurarBaseDeDatos(){
         
         try {

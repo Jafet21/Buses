@@ -5,16 +5,8 @@
  */
 package modelos;
 
-import lombok.Builder;
-import lombok.Data;
 
-/**
- *
- * @author Felipe
- */
 
-@Data
-@Builder
 public class Empresa {
   private int id;
   private String nombre;
