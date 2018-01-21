@@ -38,13 +38,11 @@ public class Aplicacion {
 
         // Usuarios
         post("/registrarUsuario", controladorUsuarios::registrarUsuario);//recibe el formulario de registro de usuario
-        get("/listarUsuarios", controladorUsuarios::listarUsuariosEnVista, Aplicacion::renderizar);//ejemplo de pagina con contenido dinamico desde el servidor para no usar ajax
-        get("/listarUsuariosJson", controladorUsuarios::listarUsuariosEnJson);//devuelve usuarios en json para ajax
+        get("/obtenerUsuarios", controladorUsuarios::listarUsuariosEnJson);//devuelve usuarios en json para ajax
 
         // Empresas
-        post("/registrarEmpresa", controladorEmpresas::registrarEmpresa);//recibe el formulario de registro de usuario
-//        get("/listarEmpresas", controladorEmpresas::listarEmpresasEnVista, Aplicacion::renderizar);//ejemplo de pagina con contenido dinamico desde el servidor para no usar ajax
-//        get("/listarEmpresasJson", controladorEmpresas::listarEmpresasEnJson);//devuelve usuarios en json para ajax
+        post("/registrarEmpresa", controladorEmpresas::registrarEmpresa);//recibe el formulario de registro de empresa
+        get("/obtenerEmpresas", controladorEmpresas::obtenerEmpresas);//devuelve empresas en json para ajax
 
     }
 

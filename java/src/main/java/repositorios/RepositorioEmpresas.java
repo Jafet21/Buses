@@ -23,7 +23,7 @@ public class RepositorioEmpresas {
 
     public void insertarEmpresa(Empresa empresa) {
         try {
-            PreparedStatement preparedStatement = conneccion.prepareStatement("insert into companias (id, nombre, correo, contrasena, telefono) values (seq.nextval,?,?,?,?)");
+            PreparedStatement preparedStatement = conneccion.prepareStatement("insert into empresas (id, nombre, correo, contrasena, telefono) values (seq.nextval,?,?,?,?)");
             preparedStatement.setString(1, empresa.getNombre());
             preparedStatement.setString(2, empresa.getCorreo());
             preparedStatement.setString(3, empresa.getContrasena());
@@ -36,7 +36,7 @@ public class RepositorioEmpresas {
 
     public Empresa obtenerEmpresa(String correo) {
         try {
-            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from companias where correo = ?");
+            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from empresas where correo = ?");
             preparedStatement.setNString(1, correo);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -58,7 +58,7 @@ public class RepositorioEmpresas {
     public List<Empresa> obtenerEmpresas() {
         try {
             List<Empresa> empresas = new ArrayList<>();
-            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from companias");
+            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from empresas");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 empresas.add(new Empresa(resultSet.getInt(1),

@@ -19,7 +19,7 @@ create table usuarios(
     contrasena varchar2(256) not null
 );
 
-create table companias(
+create table empresas(
     id number primary key,
     nombre varchar2(50) not null,
     correo varchar2(50) not null,
@@ -29,14 +29,14 @@ create table companias(
 
 create table rutas(
     id number primary key,
-    companiaId number not null,
-    descripccion varchar2(100),
+    empresaId number not null,
+    descripcion varchar2(100),
     latitudInicio float not null,
     longitudInicio float not null,
     latitudFinal float not null,
     longitudFinal float not null,
     tiempoEstimado number,
-    CONSTRAINT fk_rutas_companias FOREIGN KEY (companiaId) REFERENCES companias(id)
+    CONSTRAINT fk_rutas_empresas FOREIGN KEY (empresaId) REFERENCES empresas(id)
 );
 
 create table horarios(

@@ -1,14 +1,12 @@
 package controladores;
 
 import com.google.gson.Gson;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import modelos.Empresa;
 import repositorios.RepositorioEmpresas;
-import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
+
+import java.util.List;
 
 public class ControladorEmpresas {
    private RepositorioEmpresas repositorioEmpresas;
@@ -29,22 +27,11 @@ public class ControladorEmpresas {
         return "OK";
     }
 
-    //Este es un ejemplo que devuelve un json con el primer usuario
-    public String listarUsuariosEnJson(Request request, Response response){
-        //ejemplo de otro metodo
+    public String obtenerEmpresas(Request request, Response response){
         List<Empresa> empresas = repositorioEmpresas.obtenerEmpresas();
 
         response.type("application/json");
         return gson.toJson(empresas);
     }
 
-    //Este metodo saca los usuarios de la base y los devuelve en la vista procesadolos directamente desde el servidor
-    //Es para usarse como ejemplo en case de que se vea conveniente en algun momento
-    
-    public ModelAndView listarUsuariosEnVista(Request request, Response response){
-        List<Empresa> empresas = repositorioEmpresas.obtenerEmpresas();
-        Map<String, Object> parametrosParaVista = new HashMap<>();
-        parametrosParaVista.put("empresas", empresas);
-        return new ModelAndView(parametrosParaVista, "empresas.vm");
-    }
 }

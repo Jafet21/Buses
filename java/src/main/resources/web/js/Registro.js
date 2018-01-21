@@ -21,6 +21,26 @@ function registrarUsuario() {
         swal("Error", "Verifique que los campos se encuentre con la informacion solicitada", "error");
 }
 
+function registrarRuta() {
+    if (validacionDatosUsuario()) {
+        $.ajax({
+            url: '../registrarRuta',
+            data: {
+                descripcion: $("#descripcion").val(),
+                tiempoEstimado: $("#tiempoEstimado").val()
+            },
+            error: function () { //si existe un error en la respuesta del ajax
+                swal("Alerta", "Se genero un error, contacte al administrador", "error");
+            },
+            success: function (data) {
+                window.location.href = "AdministrarRutas.html";
+            },
+            type: 'POST'
+        });
+    } else
+        swal("Error", "Verifique que los campos se encuentre con la informacion solicitada", "error");
+}
+
 function registrarEmpresa() {
     if (validacionDatosEmpresa()) {
         $.ajax({

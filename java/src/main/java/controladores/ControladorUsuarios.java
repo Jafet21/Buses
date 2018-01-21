@@ -42,12 +42,4 @@ public class ControladorUsuarios {
         return gson.toJson(usuarios);
     }
 
-    //Este metodo saca los usuarios de la base y los devuelve en la vista procesadolos directamente desde el servidor
-    //Es para usarse como ejemplo en case de que se vea conveniente en algun momento
-    public ModelAndView listarUsuariosEnVista(Request request, Response response){
-        List<Usuario> usuarios = repositorioUsuarios.obtenerUsuarios();
-        Map<String, Object> parametrosParaVista = new HashMap<>();
-        parametrosParaVista.put("usuarios", usuarios);
-        return new ModelAndView(parametrosParaVista, "usuarios.vm");
-    }
 }
