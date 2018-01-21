@@ -2,7 +2,9 @@ package config;
 
 import com.google.gson.Gson;
 import controladores.ControladorEmpresas;
+import controladores.ControladorRutas;
 import controladores.ControladorUsuarios;
+import repositorios.RepositorioRutas;
 import repositorios.RepositorioUsuarios;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -22,10 +24,12 @@ public class Aplicacion {
     //Repositorios
     private static final RepositorioUsuarios repositorioUsuarios = new RepositorioUsuarios(coneccion);
     private static final RepositorioEmpresas repositorioEmpresas = new RepositorioEmpresas(coneccion);
+    private static final RepositorioRutas repositoriosRutas = new RepositorioRutas(coneccion);
 
     //Controladores
     private static final ControladorUsuarios controladorUsuarios = new ControladorUsuarios(repositorioUsuarios,gson);
     private static final ControladorEmpresas controladorEmpresas = new ControladorEmpresas(repositorioEmpresas,gson);
+    private static final ControladorRutas controladorRutas = new ControladorRutas(repositoriosRutas,gson);
 
     public static void main(String[] args) {
         configurarServidor();
@@ -44,6 +48,10 @@ public class Aplicacion {
         post("/registrarEmpresa", controladorEmpresas::registrarEmpresa);//recibe el formulario de registro de empresa
         get("/obtenerEmpresas", controladorEmpresas::obtenerEmpresas);//devuelve empresas en json para ajax
 
+        //Rutas
+        post("/registrarRuta", controladorRutas::registrarRuta);//recibe el formulario de registro de ruta
+        get("/obtenerRutas", controladorRutas::obtenerRutas);//devuelve empresas en json para ajax
+        post("/eliminarRuta", controladorRutas::eliminarRuta);//devuelve empresas en json para ajax
     }
 
     public static void configurarServidor() {

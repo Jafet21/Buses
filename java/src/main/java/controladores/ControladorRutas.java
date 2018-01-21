@@ -34,5 +34,12 @@ public class ControladorRutas {
         return gson.toJson(rutas);
     }
 
+    public String eliminarRuta(Request request, Response response){
+        int id = Integer.parseInt(request.queryParams("id"));
+
+        repositorioRutas.eliminarRuta(id);
+        return "OK";
+    }
+
 
 }

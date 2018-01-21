@@ -17,7 +17,7 @@ public class RepositorioRutas {
 
     public void insertarRuta(Ruta ruta) {
         try {
-            PreparedStatement preparedStatement = conneccion.prepareStatement("insert into usuarios (id, empresaId, descripcion, latitudInicio, longitudInicio, latitudFinal, longitudFinal, tiempoEstimado) values (seq.nextval,?,?,?,?,?,?,?)");
+            PreparedStatement preparedStatement = conneccion.prepareStatement("insert into rutas (id, empresaId, descripcion, latitudInicio, longitudInicio, latitudFinal, longitudFinal, tiempoEstimado) values (seq.nextval,?,?,?,?,?,?,?)");
             preparedStatement.setInt(1, ruta.getEmpresaId());
             preparedStatement.setString(2, ruta.getDescripcion());
             preparedStatement.setFloat(3, ruta.getLatitudInicio());
@@ -44,7 +44,7 @@ public class RepositorioRutas {
     public List<Ruta> obtenerRutas(int companiaId) {
         try{
             List<Ruta> rutas = new ArrayList<>();
-            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from rutas where companiaId = ?");
+            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from rutas where empresaId = ?");
             preparedStatement.setInt(1, companiaId);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

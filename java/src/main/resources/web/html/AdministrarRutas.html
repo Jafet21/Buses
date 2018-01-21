@@ -2,12 +2,12 @@
 
 <html>
 <head>
-    <title> Cuidades</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Administrar Rutas</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-    <link href="../css/main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../css/main.css" />
     <link href="../css/css.css" rel="stylesheet" type="text/css"/>
 </head>
 
@@ -19,7 +19,7 @@
         <div class="inner">
             <!-- Header -->
             <header id="header">
-                <a href="Ciudades.html" class="logo"><strong> Cuidades</strong></a>
+                <a href="AdministrarRutas.html" class="logo"><strong>Administrar Rutas</strong></a>
                 <ul class="icons">
                     <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
                     <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -27,35 +27,24 @@
                 </ul>
             </header>
 
+            <br />
+            <br />
 
-            <!-- Section -->
-            <section>
-                <header class="major centrarTexto">
-                    <h2>Ciudades en las que se Ofrece el Servicio.</h2>
-                </header>
-                <div class="posts">
-                    <article>
-                        <img class="image"  src="../imagenes/san jose.jpg" alt=""/>
-                        <h3  class="centrarTexto">San José</h3>
-                    </article>
-                    <article>
-                        <img class="image" src="../imagenes/alajuela.jpg" alt=""/>
-                        <h3 class="centrarTexto">Alajuela</h3>
-                    </article><article>
-                    <img class="image" src="../imagenes/heredia.JPG" alt=""/>
-                    <h3 class="centrarTexto">Heredia</h3>
-                </article>
-                    <article>
-                        <img class="image" src="../imagenes/cartago.jpg" alt=""/>
-                        <h3 class="centrarTexto">Cartago</h3>
-                    </article>
-                </div>
-            </section>
+            <div class="box">
+                <button onclick="location.href='RegistroRuta.html';" type="button">Registrar nueva ruta</button>
+                <hr>
+                <table id="tablaRutas">
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Tiempo Estimado</th>
+                        <th>Paradas</th>
+                        <th>Acciones</th>
+                    </tr>
+                </table>
 
+            </div>
         </div>
     </div>
-
-
 
     <!-- Sidebar -->
     <div id="sidebar">
@@ -83,7 +72,7 @@
                             <li><a href="RegistroEmpresa.html">Registrar Empresa</a></li>
                         </ul>
                     </li>
-                    <li><a href="Contactenos.html">Contáctenos</a></li>
+                    <li><a href="Contactenos.html">Contactenos</a></li>
                 </ul>
             </nav>
 
@@ -111,13 +100,15 @@
 </div>
 
 <!-- Scripts -->
-<script src="../js/jquery.min.js" type="text/javascript"></script>
-<script src="../js/skel.min.js" type="text/javascript"></script>
-<script src="../js/util.js" type="text/javascript"></script>
-<script src="../js/main.js" type="text/javascript"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/skel.min.js"></script>
+<script src="../js/util.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/Registro.js"></script>
+<script src="../js/Empresa.js"></script>
 
-<script src="../js/Registro.js" type="text/javascript"></script>
-
-
+<script>
+    obtenerRutasDeEmpresa();
+</script>
 </body>
 </html>
