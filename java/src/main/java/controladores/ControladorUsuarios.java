@@ -23,10 +23,10 @@ public class ControladorUsuarios {
     }
 
     public String registrarUsuario(Request request, Response response){
-        Usuario usuario = new Usuario(request.queryParams("nombre"),
+        Usuario usuario = new Usuario(request.queryParams("nombreUsuario"),
         request.queryParams("apellidos"),
-        request.queryParams("correo"),
-        request.queryParams("contrasena"));
+        request.queryParams("correoUsuario"),
+        request.queryParams("contrasenaUsuario"));
        
 
         repositorioUsuarios.insertarUsuario(usuario);

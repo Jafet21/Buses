@@ -7,6 +7,7 @@ import repositorios.RepositorioUsuarios;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.sql.Connection;
+import repositorios.RepositorioEmpresas;
 
 import static spark.Spark.*;
 
@@ -20,22 +21,30 @@ public class Aplicacion {
 
     //Repositorios
     private static final RepositorioUsuarios repositorioUsuarios = new RepositorioUsuarios(coneccion);
-    //private static final RepositorioEmpresas repositorioEmpresas= new RepositorioEmpresas(coneccion);
+    private static final RepositorioEmpresas repositorioEmpresas = new RepositorioEmpresas(coneccion);
 
     //Controladores
-    private static final ControladorUsuarios controladorUsuarios = new ControladorUsuarios(repositorioUsuarios, gson);
-    private static final ControladorEmpresas controladorEmpresas = new ControladorEmpresas(gson);
+    private static final ControladorUsuarios controladorUsuarios = new ControladorUsuarios(repositorioUsuarios,gson);
+    private static final ControladorEmpresas controladorEmpresas = new ControladorEmpresas(repositorioEmpresas,gson);
 
     public static void main(String[] args) {
         configurarServidor();
         configurarRutasWeb();
+        
+        
     }
 
     public static void configurarRutasWeb() {
+
+        // Usuarios
         post("/registrarUsuario", controladorUsuarios::registrarUsuario);//recibe el formulario de registro de usuario
         get("/listarUsuarios", controladorUsuarios::listarUsuariosEnVista, Aplicacion::renderizar);//ejemplo de pagina con contenido dinamico desde el servidor para no usar ajax
         get("/listarUsuariosJson", controladorUsuarios::listarUsuariosEnJson);//devuelve usuarios en json para ajax
 
+        // Empresas
+        post("/registrarEmpresa", controladorEmpresas::registrarEmpresa);//recibe el formulario de registro de usuario
+//        get("/listarEmpresas", controladorEmpresas::listarEmpresasEnVista, Aplicacion::renderizar);//ejemplo de pagina con contenido dinamico desde el servidor para no usar ajax
+//        get("/listarEmpresasJson", controladorEmpresas::listarEmpresasEnJson);//devuelve usuarios en json para ajax
 
     }
 

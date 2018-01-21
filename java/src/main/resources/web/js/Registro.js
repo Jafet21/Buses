@@ -4,17 +4,16 @@ function registrarUsuario() {
         $.ajax({
             url: '../registrarUsuario',
             data: {
-                nombre: $("#nombre").val(),
+                nombreUsuario: $("#nombreUsuario").val(),
                 apellidos: $("#apellidos").val(),
-                correo: $("#correo").val(),
-                identificacion: $("#identificacion").val(),
-                contrasena: $("#contrasena").val(),
+                correoUsuario: $("#correoUsuario").val(),
+                contrasenaUsuario: $("#contrasenaUsuario").val()
             },
             error: function () { //si existe un error en la respuesta del ajax
                 swal("Alerta", "Se genero un error, contacte al administrador", "error");
             },
             success: function (data) {
-                swal(data, true);
+                swal("Correcto", "Ha sido registrado en nuestro sistema", "success");
             },
             type: 'POST'
         });
@@ -25,18 +24,18 @@ function registrarUsuario() {
 function registrarEmpresa() {
     if (validacionDatosEmpresa()) {
         $.ajax({
-            url: '../Registro_Empresa',
+            url: '../registrarEmpresa',
             data: {
-                accion: "registrarEmpresa",
-                nombreEmpresa: $("#NombreEmpresa").val(),
+                nombreEmpresa: $("#nombreEmpresa").val(),
                 telefonoEmpresa: $("#telefonoEmpresa").val(),
-                correoEmpresa: $("#correoEmpresa").val()
+                correoEmpresa: $("#correoEmpresa").val(),
+                contrasenaEmpresa: $("#contrasenaEmpresa").val()
             },
             error: function () { //si existe un error en la respuesta del ajax
                 swal("Alerta", "Se genero un error, contacte al administrador", "error");
             },
             success: function (data) {
-                swal(data, true);
+                swal("Registrado", "Se ha registrado satiscatoriamente", "success");
             },
             type: 'POST'
         });
@@ -47,21 +46,23 @@ function registrarEmpresa() {
 function validacionDatosUsuario() {
     var validacion = true;
 
-    if ($("#identificacion").val() === "") {
-       
-        validacion = false;
-    }
     if ($("#nombreUsuario").val() === "") {
         validacion = false;
     }
 
-    if ($("#pApellido").val() === "") {
+    if ($("#apellidos").val() === "") {
         validacion = false;
     }
-    if ($("#sApellido").val() === "") {
+    if ($("#correoUsuario").val() === "") {
         validacion = false;
     }
-    if ($("#edad").val() === "") {
+
+    if ($("#contrasenaUsuario").val() === "") {
+        validacion = false;
+    }
+
+    if ($("#confirmacionContrasena").val() !== $("#contrasenaUsuario").val()) {
+        swal("Error", "La contraseña no coincide", "error");
         validacion = false;
     }
     return validacion;
@@ -70,7 +71,7 @@ function validacionDatosUsuario() {
 function validacionDatosEmpresa() {
     var validacion = true;
 
-    if ($("#NombreEmpresa").val() === "") {
+    if ($("#nombreEmpresa").val() === "") {
         validacion = false;
     }
     if ($("#telefonoEmpresa").val() === "") {
@@ -78,6 +79,10 @@ function validacionDatosEmpresa() {
     }
 
     if ($("#correoEmpresa").val() === "") {
+        validacion = false;
+    }
+
+    if ($("#contrasenaEmpresa").val() === "") {
         validacion = false;
     }
 

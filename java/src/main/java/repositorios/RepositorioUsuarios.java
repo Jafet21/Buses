@@ -29,13 +29,13 @@ public class RepositorioUsuarios {
         }
     }
 
-    public Usuario obtenerUsuario(int id) {
+    public Usuario obtenerUsuario(String correo) {
         try {
-            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from usuarios where id = ?");
-            preparedStatement.setInt(1, id);
+            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from usuarios where correo = ?");
+            preparedStatement.setNString(1, correo);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return new Usuario(resultSet.getInt(id),
+                return new Usuario(resultSet.getInt(1), // como lo arreglo
                         resultSet.getString("nombre"),
                         resultSet.getString("apellidos"),
                         resultSet.getString("correo"),
@@ -51,14 +51,18 @@ public class RepositorioUsuarios {
     }
 
     public List<Usuario> obtenerUsuarios() {
-        try{
-        List<Usuario> usuarios = new ArrayList<>();
-        PreparedStatement preparedStatement = conneccion.prepareStatement("select * from usuarios");
-        ResultSet resultSet = preparedStatement.executeQuery();
-        while (resultSet.next()) {
-         // set
-        }
-        return usuarios;
+        try {
+            List<Usuario> usuarios = new ArrayList<>();
+            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from usuarios");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                usuarios.add(new Usuario(resultSet.getInt(1),
+                        resultSet.getString("nombre"),
+                        resultSet.getString("apellidos"),
+                        resultSet.getString("correo"),
+                        resultSet.getString("contrasena")));
+            }
+            return usuarios;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
