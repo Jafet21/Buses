@@ -27,15 +27,14 @@ public class Aplicacion {
     private static final RepositorioRutas repositoriosRutas = new RepositorioRutas(coneccion);
 
     //Controladores
-    private static final ControladorUsuarios controladorUsuarios = new ControladorUsuarios(repositorioUsuarios,gson);
-    private static final ControladorEmpresas controladorEmpresas = new ControladorEmpresas(repositorioEmpresas,gson);
-    private static final ControladorRutas controladorRutas = new ControladorRutas(repositoriosRutas,gson);
+    private static final ControladorUsuarios controladorUsuarios = new ControladorUsuarios(repositorioUsuarios, gson);
+    private static final ControladorEmpresas controladorEmpresas = new ControladorEmpresas(repositorioEmpresas, gson);
+    private static final ControladorRutas controladorRutas = new ControladorRutas(repositoriosRutas, gson);
 
     public static void main(String[] args) {
         configurarServidor();
         configurarRutasWeb();
-        
-        
+
     }
 
     public static void configurarRutasWeb() {
@@ -52,6 +51,10 @@ public class Aplicacion {
         post("/registrarRuta", controladorRutas::registrarRuta);//recibe el formulario de registro de ruta
         get("/obtenerRutas", controladorRutas::obtenerRutas);//devuelve empresas en json para ajax
         post("/eliminarRuta", controladorRutas::eliminarRuta);//devuelve empresas en json para ajax
+
+        //Usuario logueo
+        get("/usuarioLogeo", controladorUsuarios::usuarioLogeo);//devuelve empresas en json para ajax
+
     }
 
     public static void configurarServidor() {

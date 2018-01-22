@@ -76,11 +76,12 @@ public class RepositorioUsuarios {
             preparedStatement.setNString(2, contrasena);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return new Usuario(resultSet.getInt(1), // como lo arreglo
+                return new Usuario(
                         resultSet.getString("nombre"),
                         resultSet.getString("apellidos"),
                         resultSet.getString("correo"),
                         resultSet.getString("contrasena"));
+          
 
             } else {
                 return null;

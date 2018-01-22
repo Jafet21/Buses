@@ -44,7 +44,7 @@ public class ControladorUsuarios {
     
     public String usuarioLogeo(Request request, Response response){
         Usuario usuarioLogeo = repositorioUsuarios.obtenerUsuarioLogeo(request.queryParams("correoUsuario"), request.queryParams("contrasenaUsuario"));
-
+        request.session().attribute("correoUsuario", usuarioLogeo.getNombre());
         response.type("application/json");
         return gson.toJson(usuarioLogeo);
     }
