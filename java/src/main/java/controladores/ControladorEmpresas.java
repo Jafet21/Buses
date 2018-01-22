@@ -34,4 +34,10 @@ public class ControladorEmpresas {
         return gson.toJson(empresas);
     }
 
+    public String empresaLogeo(Request request, Response response){
+        Empresa empresaLogeo = repositorioEmpresas.obtenerEmpresaLogeo(request.queryParams("correoEmpresa"), request.queryParams("contrasenaEmpresa"));
+
+        response.type("application/json");
+        return gson.toJson(empresaLogeo);
+    }
 }

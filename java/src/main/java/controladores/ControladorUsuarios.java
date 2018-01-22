@@ -41,5 +41,12 @@ public class ControladorUsuarios {
         response.type("application/json");
         return gson.toJson(usuarios);
     }
+    
+    public String usuarioLogeo(Request request, Response response){
+        Usuario usuarioLogeo = repositorioUsuarios.obtenerUsuarioLogeo(request.queryParams("correoUsuario"), request.queryParams("contrasenaUsuario"));
+
+        response.type("application/json");
+        return gson.toJson(usuarioLogeo);
+    }
 
 }

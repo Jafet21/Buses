@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title> Servicios</title>
+        <title> Logeo</title>
          <meta charset="utf-8">
          <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,7 +22,7 @@
                 <div class="inner">
                     <!-- Header -->
                     <header id="header">
-                        <a href="Servicios.html" class="logo"><strong> Servicios</strong></a>
+                        <a href="Logeo.html" class="logo"><strong> Logeo</strong></a>
                         <ul class="icons">
                             <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
                             <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -35,40 +35,52 @@
                     <!-- Section -->
                     <section>
                         <header class="major centrarTexto">
-                            <h2>Servicios que Ofrecemos</h2>
+                            <h2>Tipos de Logeo</h2>
                         </header>
                         <div class="features">
                             <article>
-                                <span class="icon fa-money"></span>
+                                <span class="icon fa-users"></span>
                                 <div class="content">
-                                    <h3>Tarifas</h3>
-                                    <p>Los costos de los pasajes de las rutas de diferentes Empresas.</p>
+                                    <button onclick="document.getElementById('id01').style.display='block'">Logeo Usuario</button>
+                                    <div id="id01" class="modal">
+                                        <form class="modal-content animate" action="/Inicio.html">
+                                            <div class="containerLogeo">
+                                                <label><b>Correo Del Usuario:</b></label>
+                                                <input type="text" id="correoUsuarioLogeo" placeholder="Correo" name="uname" required>
+                                                <label><b>Contraseña:</b></label>
+                                                <input type="password" id="contrasenaUsuarioLogeo" placeholder="Contraseña" name="psw" required>
+                                                <button type="submit">Login</button>
+                                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
+                                                <br />
+                                                <label>¿No Tienes Una Cuenta?<a href="RegistroUsuario.html">Entrar</a></label>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </article>
+                            
                             <article>
-                                <span class="icon fa-code-fork"></span>
+                                <span class="icon fa-bus"></span>
                                 <div class="content">
-                                    <h3>Rutas</h3>
-                                    <p>Las diferentes paradas de las rutas a su destino.</p>
-				</div>
-                            </article>
-                            <article>
-                                <span class="icon fa-indent"></span>
-                                <div class="content">
-                                    <h3>Información</h3>
-                                    <p>Información de las empresas autobuseras que ofrecen sus servicios y horarios en esta página.</p>
-				</div>
-                            </article>
-                            <article>
-                                <span class="icon fa-comments-o"></span>
-                                
-                                <div class="content">
-                                    <h3>Comentarios</h3>
-                                    <p>Podrá leer y aportar comentarios a la comunidad, con el fin de mantener informados a los demás usuarios.</p>
-				</div>
+                                    <button onclick="document.getElementById('id02').style.display='block'">Logeo Empresa</button>
+                                    <div id="id02" class="modal">
+                                        <form class="modal-content animate" action="/action_page.php">
+                                            <div class="containerLogeo">
+                                                <label><b>Correo Empresa:</b></label>
+                                                <input type="text" id="correoEmpresaLogeo" placeholder="Correo" name="uname" required>
+                                                <label><b>Contraseña:</b></label>
+                                                <input type="password" id="contrasenaEmpresaLogeo" placeholder="Contraseña" name="psw" required>
+                                                <button onclick='logearEmpresa();'>Login</button>
+                                                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancelar</button>
+                                                <br />
+                                                <label>¿No Tienes Una Cuenta?<a href="RegistroEmpresa.html">Entrar</a></label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </article>
                         </div>
-                    </section>   
+                    </section>
                 </div>
             </div>
 
@@ -134,7 +146,6 @@
         <script src="../js/main.js" type="text/javascript"></script>
         
         <script src="../js/Registro.js" type="text/javascript"></script>
-        
-        
+
     </body>
 </html>

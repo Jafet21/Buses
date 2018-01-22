@@ -67,4 +67,27 @@ public class RepositorioUsuarios {
             throw new RuntimeException(e);
         }
     }
+    
+    
+    public Usuario obtenerUsuarioLogeo(String correo, String contrasena) {
+        try {
+            PreparedStatement preparedStatement = conneccion.prepareStatement("select correo, contrasena from usuarios where correo = ? and contrasena= ?" );
+            preparedStatement.setNString(1, correo);
+            preparedStatement.setNString(2, contrasena);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return new Usuario(resultSet.getInt(1), // como lo arreglo
+                        resultSet.getString("nombre"),
+                        resultSet.getString("apellidos"),
+                        resultSet.getString("correo"),
+                        resultSet.getString("contrasena"));
+
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

@@ -73,4 +73,26 @@ public class RepositorioEmpresas {
             throw new RuntimeException(e);
         }
     }
+    
+    public Empresa obtenerEmpresaLogeo(String correo, String contrasena) {
+        try {
+            PreparedStatement preparedStatement = conneccion.prepareStatement("select correo, contrasena from empresas where correo = ? and contrasena= ?" );
+            preparedStatement.setNString(1, correo);
+            preparedStatement.setNString(2, contrasena);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return new Empresa(resultSet.getInt(1),
+                        resultSet.getString("nombre"),
+                        resultSet.getString("correo"),
+                        resultSet.getString("contrasena"),
+                        resultSet.getString("telefono"));
+
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }
