@@ -71,9 +71,9 @@ public class RepositorioUsuarios {
     
     public Usuario obtenerUsuarioLogeo(String correo, String contrasena) {
         try {
-            PreparedStatement preparedStatement = conneccion.prepareStatement("select correo, contrasena from usuarios where correo = ? and contrasena= ?" );
-            preparedStatement.setNString(1, correo);
-            preparedStatement.setNString(2, contrasena);
+            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from usuarios where correo = ? and contrasena= ?" );
+            preparedStatement.setString(1, correo);
+            preparedStatement.setString(2, contrasena);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return new Usuario(

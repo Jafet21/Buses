@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 
+$(
 
+        );
 
 //-------- Logeo-----------------
 function logearEmpresa() {
@@ -16,7 +18,7 @@ function logearEmpresa() {
                 contrasenaUsuario: $("#contrasenaEmpresaLogeo").val()
             },
             error: function () { //si existe un error en la respuesta del ajax
-                swal("Alerta", "Se genero un error, contacte al administrador", "error");
+                swal("Alerta", "Credenciales no validos", "error");
             },
             success: function (data) {
                 swal("Correcto", "Bienvenido a nuestro sistema", "success");
@@ -27,21 +29,23 @@ function logearEmpresa() {
         swal("Error", "Verifique que los campos se encuentre con la informacion solicitada", "error");
 }
 
+function registrado(data) {
+
+}
 
 function logearUsuario() {
     if (validacionDatosUsuarioLogeo()) {
         $.ajax({
             url: '../usuarioLogeo',
             data: {
-                correoUsuario: $("#correoUsuarioLogeo").val(),
-                contrasenaUsuario: $("#contrasenaUsuarioLogeo").val()
+                correoUsuarioLogeo: $("#correoUsuarioLogeo").val(),
+                contrasenaUsuarioLogeo: $("#contrasenaUsuarioLogeo").val()
             },
             error: function () { //si existe un error en la respuesta del ajax
                 swal("Alerta", "Se genero un error, contacte al administrador", "error");
             },
             success: function (data) {
-                swal("Correcto", "Bienvenido a nuestro sistema "+ data.nombre, "success");
-                // window.location.href = "Ciudades.html";
+                alert("Bienvenido");
             },
             type: 'POST'
         });
@@ -61,7 +65,7 @@ function validacionDatosUsuarioLogeo() {
     if ($("#contrasenaUsuarioLogeo").val() === "") {
         validacion = false;
     }
-    
+
     return validacion;
 }
 
@@ -77,7 +81,7 @@ function validacionDatosEmpresaLogeo() {
     if ($("#contrasenaEmpresaLogeo").val() === "") {
         validacion = false;
     }
-    
+
     return validacion;
 }
 
@@ -86,7 +90,7 @@ var modal = document.getElementById('id01');
 
 var modal2 = document.getElementById('id02');
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
