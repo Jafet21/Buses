@@ -33,10 +33,26 @@ public class ControladorEmpresas {
         response.type("application/json");
         return gson.toJson(empresas);
     }
-
+       
+    
     public String empresaLogeo(Request request, Response response){
-        Empresa empresaLogeo = repositorioEmpresas.obtenerEmpresaLogeo(request.queryParams("correoEmpresa"), request.queryParams("contrasenaEmpresa"));
-        response.type("application/json");
+        Empresa empresaLogeo = repositorioEmpresas.obtenerEmpresaLogeo(request.queryParams("correoEmpresaLogeo"), request.queryParams("contrasenaEmpresaLogeo"));
+        request.session().attribute("empresaLogeo", empresaLogeo.getNombre());
+        request.session().attribute("id", empresaLogeo.getId());
+
+        response.type("application/json");       
         return gson.toJson(empresaLogeo);
+    }
+    
+    
+    public String obtieneEmpresa(Request request, Response response) {
+        String empresa= request.session().attribute("empresaLogeo");
+        if(empresa==null){
+            response.status(403);
+        }
+        else{
+            response.status(200);
+        }
+        return empresa;
     }
 }

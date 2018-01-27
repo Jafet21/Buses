@@ -4,18 +4,16 @@
  * and open the template in the editor.
  */
 
-$(
 
-        );
 
 //-------- Logeo-----------------
-function logearEmpresa() {
-    if (validacionDatosUsuarioLogeo()) {
+function loguearEmpresa() {
+    if (validacionDatosEmpresaLogeo()) {
         $.ajax({
             url: '../EmpresaLogeo',
             data: {
-                correoUsuario: $("#correoEmpresaLogeo").val(),
-                contrasenaUsuario: $("#contrasenaEmpresaLogeo").val()
+                correoEmpresaLogeo: $("#correoEmpresaLogeo").val(),
+                contrasenaEmpresaLogeo: $("#contrasenaEmpresaLogeo").val()
             },
             error: function () { //si existe un error en la respuesta del ajax
                 swal("Alerta", "Credenciales no validos", "error");

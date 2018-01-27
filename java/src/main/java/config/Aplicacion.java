@@ -47,6 +47,7 @@ public class Aplicacion {
         // Empresas
         post("/registrarEmpresa", controladorEmpresas::registrarEmpresa);//recibe el formulario de registro de empresa
         get("/obtenerEmpresas", controladorEmpresas::obtenerEmpresas);//devuelve empresas en json para ajax
+        post("/EmpresaLogeo", controladorEmpresas::empresaLogeo);
 
         //Rutas
         post("/registrarRuta", controladorRutas::registrarRuta);//recibe el formulario de registro de ruta
