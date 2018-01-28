@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.net.ssl.SSLEngineResult;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 //Aqui van los metodos para los usuarios, deben estar ligados con una ruta en Aplicacion.java para que puedan ser llamados desde el navegador
 public class ControladorUsuarios {
@@ -53,6 +55,7 @@ public class ControladorUsuarios {
 
     public String obtieneUsuario(Request request, Response response) {
         String usuario= request.session().attribute("usuarioLogeo");
+       
         if(usuario==null){
             response.status(403);
         }
@@ -61,4 +64,5 @@ public class ControladorUsuarios {
         }
         return usuario;
     }
+    
 }

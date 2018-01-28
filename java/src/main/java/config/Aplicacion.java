@@ -54,6 +54,8 @@ public class Aplicacion {
         get("/obtenerRutas", controladorRutas::obtenerRutas);//devuelve empresas en json para ajax
         post("/eliminarRuta", controladorRutas::eliminarRuta);//devuelve empresas en json para ajax
 
+        //Usuario logueo
+        get("/usuarioLogeo", controladorUsuarios::usuarioLogeo);//devuelve empresas en json para ajax
 
     }
 

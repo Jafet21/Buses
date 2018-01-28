@@ -28,7 +28,7 @@ public class ControladorEmpresas {
     }
 
     public String obtenerEmpresas(Request request, Response response){
-        List<Empresa> empresas = repositorioEmpresas.obtenerEmpresas();
+        List<Empresa> empresas = repositorioEmpresas.obtenerEmpresas(2);
 
         response.type("application/json");
         return gson.toJson(empresas);

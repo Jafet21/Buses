@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Empresas</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../css/main.css" />
+        <link rel="icon" href="../imagenes/icon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    </head>
+
+    <body ng-app="myApp2">
+        <!-- Wrapper -->
+        <div id="wrapper">
+            <!-- Main -->
+            <div id="main">
+                <div class="inner">
+                    <!-- Header -->
+                    <header id="header">
+                        <a href="Servicios.html" class="logo"><strong> </strong></a>
+                        <ul class="icons">
+                            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                        </ul>
+                    </header>
+                    <h3>Empresas</h3>
+                     <div class="box" ng-controller="namesCtrl2">
+                        
+                        <table id="tablaEmpresas">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Correo</th>
+                                    <th>Telefono</th>
+                                </tr>
+                            </thead> 
+                            
+                            <tr ng-repeat="x in names|filter:test" ng-click="guardarNombre($(this).find('th:first').text())" >
+                                <th id="first" >{{x.nombre}}</th>
+                                <th>{{x.correo}}</th>
+                                <th>{{x.telefono}}</th>
+                                <th><button id="ir" onclick="guardarNombre($(this).find('th:nombreEmpresa').val())" ><span  class="glyphicon glyphicon-chevron-right"></span></button></th>
+                               
+                            </tr>
+                        </table>
+
+                     </div>
+
+                
+
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div id="sidebar">
+                <div class="inner">
+                    <!-- Search -->
+                   <div>
+
+                        <input ng-model="test" type="text" id="query" placeholder="Buscar Ruta" />
+                        
+
+                    </div>
+
+                    <!-- Menu -->
+                    <nav id="menu">
+                        <header class="major">
+                            <h2>Menu</h2>
+                        </header>
+                        <ul>
+                            <li><a href="Inicio.html">Inicio</a></li>
+                            <li><a href="Servicios.html">Servicios</a></li>
+                            <li><a href="Cuidades.html">Cuidades</a></li>
+                            <li>
+                                <span class="opener">Registrarse</span>
+                                <ul>
+                                    <li><a href="RegistroUsuario.html">Registrar Usuario</a></li>
+                                    <li><a href="RegistroEmpresa.html">Registrar Empresa</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="Contactenos.html">Contactenos</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Section -->
+                    <section>
+                        <header class="major">
+                            <h2>Información General</h2>
+                        </header>
+                        <p>Recibimos sus comentarios y sugerecias hacerca de nuestro servicio.</p>
+                        <ul class="contact">
+                            <li class="fa-envelope-o"><a href="#">horariobus@buses.com</a></li>
+                            <li class="fa-phone">(+506) 2222-0000</li>
+                            <li class="fa-home"> Heredia,Costa Rica</li>
+                        </ul>
+                    </section>
+
+
+                    <!-- Footer -->
+                    <footer id="footer">
+                        <p class="copyright"> Derechos Reservados &copy;·   
+                            <a href="Inicio.html">Horarios Transportes Publicos</a></p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/skel.min.js"></script>
+        <script src="../js/util.js"></script>
+        <script src="../js/main.js"></script>
+        <script src="../js/Empresa.js"></script>
+         <script src="../js/RutasController.js"></script>
+      
+
+
+    </body>
+</html>

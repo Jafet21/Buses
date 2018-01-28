@@ -109,3 +109,16 @@ function validacionDatosEmpresa() {
     return validacion;
 }
 
+function barraBusqueda(){
+   var query = $("#query").val();
+    alert(query);
+    sessionStorage.setItem("query",query);
+    window.location = "../html/VerRutas.html";;
+    
+}
+
+function obtenerQuery(){
+    var query = sessionStorage.getItem("query");
+     alert(query);
+    $("#query").val(query);
+}

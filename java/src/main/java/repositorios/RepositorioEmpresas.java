@@ -37,31 +37,37 @@ public class RepositorioEmpresas {
 //    public Empresa obtenerEmpresa(String correo) {
 //      
 //    }
-
-    public List<Empresa> obtenerEmpresas() {
+    public List<Empresa> obtenerEmpresas(int companiaId) {
         try {
             List<Empresa> empresas = new ArrayList<>();
             PreparedStatement preparedStatement = conneccion.prepareStatement("select * from empresas");
             ResultSet resultSet = preparedStatement.executeQuery();
+
             while (resultSet.next()) {
-                empresas.add(new Empresa(resultSet.getInt(1),
+                Empresa empresa = new Empresa(
+                        resultSet.getInt("id"),
                         resultSet.getString("nombre"),
                         resultSet.getString("correo"),
                         resultSet.getString("contrasena"),
                         resultSet.getString("telefono")
-                ));
+                );
+                 empresas.add(empresa);
             }
             return empresas;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    
+
     public Empresa obtenerEmpresaLogeo(String correo, String contrasena) {
         try {
-            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from empresas where correo = ? and contrasena= ?" );
-            preparedStatement.setString(1, correo);
-            preparedStatement.setString(2, contrasena);
+
+         
+
+            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from empresas where correo = ? and contrasena= ?");
+            preparedStatement.setNString(1, correo);
+            preparedStatement.setNString(2, contrasena);
+
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return new Empresa(resultSet.getInt(1),

@@ -9,9 +9,11 @@
 
     <link rel="stylesheet" href="../css/main.css" />
     <link href="../css/css.css" rel="stylesheet" type="text/css"/>
+    <link rel="icon" href="../imagenes/icon.png" type="image/x-icon" />
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
 </head>
 
-<body>
+<body ng-app="myApp" >
 <!-- Wrapper -->
 <div id="wrapper">
     <!-- Main -->
@@ -30,32 +32,37 @@
 
             <br />
             <br />
-
-            <div class="box">
-                <button onclick="location.href='RegistroRuta.html';" type="button">Registrar nueva ruta</button>
-                <hr>
-                <table id="tablaRutas">
-                    <tr>
+             <div class="box" ng-controller="namesCtrl">
+                 <button onclick="location.href='RegistroRuta.html';" type="button">Registrar nueva ruta</button>
+                      <br><br>
+                        <table id="tablaRutas">
+                             <tr>
                         <th>Descripción</th>
                         <th>Tiempo Estimado</th>
                         <th>Paradas</th>
                         <th>Acciones</th>
                     </tr>
-                </table>
+                            <tr ng-repeat="x in names|filter:test">
+                                <th>{{x.descripcion}}</th>
+                                <th>{{x.tiempoEstimado}}</th>
+                            </tr>
+                        </table>
 
-            </div>
+                    </div>
+
+           
         </div>
     </div>
 
     <!-- Sidebar -->
     <div id="sidebar">
         <div class="inner">
-            <!-- Search -->
-            <section id="search" class="alt">
-                <form method="post" action="#">
-                    <input type="text" name="query" id="query" placeholder="Search" />
-                </form>
-            </section>
+           <div>
+
+                        <input ng-model="test" type="text" id="query" placeholder="Buscar Ruta" />
+                        
+
+                    </div>
 
             <!-- Menu -->
             <nav id="menu">
@@ -107,9 +114,8 @@
 <script src="../js/main.js"></script>
 <script src="../js/Registro.js"></script>
 <script src="../js/Empresa.js"></script>
+ <script src="../js/RutasController.js"></script>
 
-<script>
-    obtenerRutasDeEmpresa();
-</script>
+
 </body>
 </html>

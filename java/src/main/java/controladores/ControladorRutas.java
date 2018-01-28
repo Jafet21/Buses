@@ -19,7 +19,7 @@ public class ControladorRutas {
 
     public String registrarRuta(Request request, Response response){
         Ruta ruta = new Ruta();
-        ruta.setEmpresaId(1);
+        ruta.setEmpresaId(2);
         ruta.setDescripcion(request.queryParams("descripcion"));
         ruta.setTiempoEstimado(Integer.parseInt(request.queryParams("tiempoEstimado")));
 
@@ -28,7 +28,7 @@ public class ControladorRutas {
     }
 
     public String obtenerRutas(Request request, Response response){
-        List<Ruta> rutas = repositorioRutas.obtenerRutas(1);
+        List<Ruta> rutas = repositorioRutas.obtenerRutas(2);
 
         response.type("application/json");
         return gson.toJson(rutas);

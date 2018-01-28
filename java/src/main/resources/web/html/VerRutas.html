@@ -2,17 +2,18 @@
 
 <html>
     <head>
-        <title>Registrar Empresa</title>
+        <title>Rutas</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+
         <link rel="stylesheet" href="../css/main.css" />
         <link href="../css/css.css" rel="stylesheet" type="text/css"/>
         <link rel="icon" href="../imagenes/icon.png" type="image/x-icon" />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
     </head>
 
-    <body>
+    <body ng-app="myApp" onload="obtenerQuery()">
         <!-- Wrapper -->
         <div id="wrapper">
             <!-- Main -->
@@ -20,7 +21,7 @@
                 <div class="inner">
                     <!-- Header -->
                     <header id="header">
-                        <a href="RegistroEmpresa.html" class="logo"><strong>Registrar Empresa</strong></a>
+                        <a href="AdministrarRutas.html" class="logo"><strong>Rutas</strong></a>
                         <ul class="icons">
                             <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
                             <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -32,70 +33,29 @@
                     <br />
                     <br />
 
-                    <!-- Form -->
-                    <div class="box">
-                        <h3 class="centrarTexto" >Información Requerida</h3>
-                        <form  method="post" action="#">
-                            <div class="row uniform">
+                    <div class="box" ng-controller="namesCtrl">
+                        <hr>
+                        <table id="tablaRutas">
+                            <tr ng-repeat="x in names|filter:test">
+                                <th>{{x.descripcion}}</th>
+                                <th>{{x.tiempoEstimado}}</th>
+                            </tr>
+                        </table>
 
-
-
-                                <div class="6u$ 12u$(small)">
-                                    <label  for="nombreEmpresa">Nombre:</label>
-                                </div>
-                                <div class="6u$ 12u$(xsmall)">
-                                    <input type="text" id="nombreEmpresa" placeholder="Nombre de la compañía" name="nombreEmpresa">
-                                </div>
-
-                                <div  class="6u$ 12u$(small)">
-                                    <label  for="correoEmpresa">Correo:</label>
-                                </div>
-                                <div class="6u$ 12u$(xsmall)">
-                                    <input type="email" id="correoEmpresa" placeholder="Correo electronico" name="correoEmpresa">
-                                </div>
-
-                                <div class="6u$ 12u$(small)">
-                                    <label  for="contrasenaEmpresa">Contraseña:</label>
-                                </div>
-                                <div class="6u$ 12u$(xsmall)">
-                                    <input type="password" class="form-control" id="contrasenaEmpresa" placeholder="Contraseña" name="contrasenaEmpresa">
-                                </div>
-
-                                <div class="6u$ 12u$(small)" >
-                                    <label  for="telefonoEmpresa">Teléfono:</label>
-                                </div>
-                                <div class="6u$ 12u$(small)">
-                                    <input type="text" class="form-control" id="telefonoEmpresa" placeholder="Teléfono de la compañía" name="telefonoEmpresa">
-                                </div>
-
-
-
-
-                                <div class="6u$ 12u$(medium)">
-                                    <ul class="actions">
-                                        <button onclick='registrarEmpresa();'>Registrar</button>
-                                        <button type="reset" >Cancelar</button>
-                                    </ul>
-                                </div>
-
-
-
-                            </div>
-                        </form>
-                    </div>  
+                    </div>
                 </div>
             </div>
 
             <!-- Sidebar -->
             <div id="sidebar">
                 <div class="inner">
+                    <!-- Search -->
                     <div>
+
+                        <input ng-model="test" type="text" id="query" placeholder="Buscar Ruta" />
                         
-                           
-                            <button onclick="barraBusqueda()">Buscar Rutas</button>
-                        
-                        </div>
-                    
+
+                    </div>
 
                     <!-- Menu -->
                     <nav id="menu">
@@ -113,7 +73,7 @@
                                     <li><a href="RegistroEmpresa.html">Registrar Empresa</a></li>
                                 </ul>
                             </li>
-                            <li><a href="Contactenos.html">Contáctenos</a></li>
+                            <li><a href="Contactenos.html">Contactenos</a></li>
                         </ul>
                     </nav>
 
@@ -133,7 +93,7 @@
 
                     <!-- Footer -->
                     <footer id="footer">
-                        <p class="copyright"> Derechos Reservados &copy;·   
+                        <p class="copyright"> Derechos Reservados &copy;·
                             <a href="Inicio.html">Horarios Transportes Públicos</a></p>
                     </footer>
                 </div>
@@ -145,9 +105,9 @@
         <script src="../js/skel.min.js"></script>
         <script src="../js/util.js"></script>
         <script src="../js/main.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-        <script src="../js/Registro.js" type="text/javascript"></script>
-
+        <script src="../js/Registro.js"></script>
+        <script src="../js/Empresa.js"></script>
+        <script src="../js/RutasController.js"></script>
 
     </body>
 </html>

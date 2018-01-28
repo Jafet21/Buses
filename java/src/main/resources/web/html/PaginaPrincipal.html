@@ -2,17 +2,25 @@
 
 <html>
 <head>
-    <title>Registrar Ruta</title>
+    <title>Bienvenido</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css" />
     <link href="../css/css.css" rel="stylesheet" type="text/css"/>
     <link rel="icon" href="../imagenes/icon.png" type="image/x-icon" />
+    
+    
+    
 </head>
 
+
+
 <body>
+    
+    
 <!-- Wrapper -->
 <div id="wrapper">
     <!-- Main -->
@@ -20,44 +28,29 @@
         <div class="inner">
             <!-- Header -->
             <header id="header">
-                <a href="RegistroUsuario.html" class="logo"><strong>Registrar Ruta</strong></a>
+                <a href="PaginaPrincipal.html" class="logo"><strong> Bienvenido</strong></a>
                 <ul class="icons">
                     <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
                     <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
                     <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="Logeo.html" class="icon fa-user">Iniciar Sesión</a></li>
+                    <li><a href="Logeo.html" class="icon fa-user">Cerrar Sesión</a></li>
                 </ul>
             </header>
 
             <br />
             <br />
 
-            <!-- Form -->
-            <div class="box">
-                <form  method="post" action="#">
-                    <div class="row uniform">
+            <div >
+                
+               
+                
+                <div class="box">
+                 <button onclick="location.href='TablaEmpresas.html';"  type="button">Buscar Empresa</button>
+               </div>
+                  <div class="box">
+                 <button onclick="location.href='VerRutas.html';"  type="button">Buscar Rutas</button>
+               </div>
 
-                        <div class="6u$ 12u$(small)">
-                            <label  for="id">Descripción:</label>
-                        </div>
-                        <div class="6u$ 12u$(xsmall)">
-                            <input type="text" id="descripcion" placeholder="Descripcion o nombre de ruta" name="id">
-                        </div>
-
-                        <div class="6u$ 12u$(small)">
-                            <label  for="nombre">Tiempo estimado (minutos):</label>
-                        </div>
-                        <div class="6u$ 12u$(xsmall)">
-                            <input type="number" id="tiempoEstimado" placeholder="Tiempo estimado en minutos" name="estimado">
-                        </div>
-                        <div class="6u$ 12u$(medium)">
-                            <ul class="actions">
-                                <button onclick='registrarRuta();' type="button">Registrar</button>
-                                <button onclick="location.href='AdministrarRutas.html';" type="button">Cancelar</button>
-                            </ul>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
@@ -65,13 +58,6 @@
     <!-- Sidebar -->
     <div id="sidebar">
         <div class="inner">
-            <!-- Search -->
-            <section id="search" class="alt">
-                <form method="post" action="#">
-                    <input type="text" name="query" id="query" placeholder="Search" />
-                </form>
-            </section>
-
             <!-- Menu -->
             <nav id="menu">
                 <header class="major">
@@ -88,7 +74,7 @@
                             <li><a href="RegistroEmpresa.html">Registrar Empresa</a></li>
                         </ul>
                     </li>
-                    <li><a href="Contactenos.html">Contáctenos</a></li>
+                    <li><a href="Contactenos.html">Contactenos</a></li>
                 </ul>
             </nav>
 
@@ -121,6 +107,7 @@
 <script src="../js/util.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/Registro.js"></script>
+<script src="../js/Empresa.js"></script>
 
 
 </body>
