@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title> Servicios</title>
+        <title> Registrar Comentarios</title>
          <meta charset="utf-8">
          <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,68 +22,69 @@
                 <div class="inner">
                     <!-- Header -->
                     <header id="header">
-                        <a href="Servicios.html" class="logo"><strong> Servicios</strong></a>
+                        <a href="RegistrarComentario.html" class="logo"><strong> Registrar Comentarios</strong></a>
                         <ul class="icons">
                             <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
                             <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
                             <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                            <li><a href="Logeo.html" class="icon fa-user">Iniciar Sesión</a></li>
+                            <li><a href="Logeo.html" class="icon fa-user">Iniciar SesiÃ³n</a></li>
                         </ul>
                     </header>
                     
-                    
-                    <!-- Section -->
-                    <section>
-                        <header class="major centrarTexto">
-                            <h2>Servicios que Ofrecemos</h2>
-                        </header>
-                        <div class="features">
-                            <article>
-                                <span class="icon fa-money"></span>
-                                <div class="content">
-                                    <h3>Tarifas</h3>
-                                    <p>Los costos de los pasajes de las rutas de diferentes Empresas.</p>
+                    <br />
+                    <br />
+                   <!-- Form -->
+                   <div class="box">
+                       <h3 class="centrarTexto" >InformaciÃ³n requerida para Comentar</h3>
+                       <form  method="post" action="#">
+                            <div class="row uniform">
+                           
+                                <div class="6u$ 12u$(small)">
+                                    <label  for="nombre">Usuario:</label>
                                 </div>
-                            </article>
-                            <article>
-                                <span class="icon fa-code-fork"></span>
-                                <div class="content">
-                                    <h3>Rutas</h3>
-                                    <p>Las diferentes paradas de las rutas a su destino.</p>
-				</div>
-                            </article>
-                            <article>
-                                <span class="icon fa-indent"></span>
-                                <div class="content">
-                                    <h3>Información</h3>
-                                    <p>Información de las empresas autobuseras que ofrecen sus servicios y horarios en esta página.</p>
-				</div>
-                            </article>
-                            <article>
-                                <span class="icon fa-comments-o"></span>
+                                <div class="6u$ 12u$(xsmall)">
+                                    <input type="text" id="nombreComentarioC" placeholder="Nombre del Usuario" name="nombreComentarioC">
+                                </div>
+                                <div class="6u$ 12u$(small)">
+                                    <label  for="nombre">Nombre de la Ruta:</label>
+                                </div>
+                                <div class="6u$ 12u$(xsmall)">
+                                    <input type="text" id="rutaComentario" placeholder="Nombre de la Ruta" name="rutaComentario">
+                                </div>
                                 
-                                <div class="content">
-                                    <h3>Comentarios</h3>
-                                    <p>Podrá leer y aportar comentarios a la comunidad, con el fin de mantener informados a los demás usuarios.</p>
-				</div>
-                            </article>
-                        </div>
-                    </section>   
+                                <div class="6u$ 12u$(small)">
+                                    <label  for="fecha">Fecha:</label>
+                                </div>
+                                <div class="6u$ 12u$(xsmall)">
+                                    <input type="text" id="fechaComentario" placeholder="dd/mm/yyyy" name="correo">
+                                </div>
+                           
+                           
+                                <div class="12u$">
+                                    <textarea name="demo-message" id="comentarios" placeholder="Ingrese su Comentario..." rows="6"></textarea>
+                                </div>
+                                
+                                <div class="6u$ 12u$(medium)">
+                                    <ul class="actions">
+                                        <button class="icon fa-envelope-o" onclick='registrarComentario();'>Comentar</button>
+                                        <button class="icon fa-close"  type="reset">Canselar</button>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div> 
                 </div>
             </div>
-
-            
             
             <!-- Sidebar -->
             <div id="sidebar">
                 <div class="inner">
-                   <div>
-                        
-                           
-                            <button onclick="barraBusqueda()">Buscar Rutas</button>
-                        
-                        </div>
-                    
+                    <!-- Search -->
+                    <section id="search" class="alt">
+                        <form method="post" action="#">
+                            <input type="text" name="query" id="query" placeholder="Buscar Ruta" />
+                        </form>
+                    </section>
                     
                     <!-- Menu -->
                     <nav id="menu">
@@ -101,7 +102,7 @@
                                     <li><a href="RegistroEmpresa.html">Registrar Empresa</a></li>
                                 </ul>
                             </li>
-                            <li><a href="Contactenos.html">Contáctenos</a></li>
+                            <li><a href="Contactenos.html">ContÃ¡ctenos</a></li>
                             <li><a href="Comentario.html">Comentarios</a></li>
                         </ul>
                     </nav>
@@ -109,7 +110,7 @@
                    <!-- Section -->
                    <section>
                        <header class="major">
-                           <h2>Información General</h2>
+                           <h2>InformaciÃ³n General</h2>
                        </header>
                        <p>Recibimos sus comentarios y sugerecias hacerca de nuestro servicio.</p>
                        <ul class="contact">
@@ -122,8 +123,8 @@
                    
                    <!-- Footer -->
                    <footer id="footer">
-                       <p class="copyright"> Derechos Reservados &copy;·   
-                           <a href="Inicio.html">Horarios Transportes Públicos</a></p>
+                       <p class="copyright"> Derechos Reservados &copy; Â·   
+                           <a href="Inicio.html">Horarios Transportes PÃºblicos</a></p>
                    </footer>
                 </div>
             </div>
@@ -134,9 +135,10 @@
         <script src="../js/skel.min.js" type="text/javascript"></script>
         <script src="../js/util.js" type="text/javascript"></script>
         <script src="../js/main.js" type="text/javascript"></script>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
         <script src="../js/Registro.js" type="text/javascript"></script>
-        
+        <script src="../js/Comentario.js" type="text/javascript"></script>
         
     </body>
 </html>
+

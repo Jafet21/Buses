@@ -1,6 +1,7 @@
 package config;
 
 import com.google.gson.Gson;
+import controladores.ControladorComentarios;
 import controladores.ControladorEmpresas;
 import controladores.ControladorRutas;
 import controladores.ControladorUsuarios;
@@ -9,6 +10,7 @@ import repositorios.RepositorioUsuarios;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.sql.Connection;
+import repositorios.RepositorioComentario;
 import repositorios.RepositorioEmpresas;
 
 import static spark.Spark.*;
@@ -25,11 +27,14 @@ public class Aplicacion {
     private static final RepositorioUsuarios repositorioUsuarios = new RepositorioUsuarios(coneccion);
     private static final RepositorioEmpresas repositorioEmpresas = new RepositorioEmpresas(coneccion);
     private static final RepositorioRutas repositoriosRutas = new RepositorioRutas(coneccion);
+    private static final RepositorioComentario repositoriosComentarios = new RepositorioComentario(coneccion);
 
     //Controladores
     private static final ControladorUsuarios controladorUsuarios = new ControladorUsuarios(repositorioUsuarios, gson);
     private static final ControladorEmpresas controladorEmpresas = new ControladorEmpresas(repositorioEmpresas, gson);
     private static final ControladorRutas controladorRutas = new ControladorRutas(repositoriosRutas, gson);
+    private static final ControladorComentarios controladorComentarios = new ControladorComentarios(repositoriosComentarios, gson);
+
 
     public static void main(String[] args) {
         configurarServidor();
@@ -57,6 +62,12 @@ public class Aplicacion {
 
         //Usuario logueo
         get("/usuarioLogeo", controladorUsuarios::usuarioLogeo);//devuelve empresas en json para ajax
+        
+         //Comentarios
+        post("/registrarComentario", controladorComentarios::registrarComentario);//recibe el formulario de registro de Comentarios
+        get("/obtenerComentarios", controladorComentarios::obtenerComentarios);//devuelve Comentarios en json para ajax
+        post("/eliminarComentario", controladorComentarios::eliminarComentario);//devuelve Comentarios en json para ajax
+   
 
     }
 

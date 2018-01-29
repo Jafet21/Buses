@@ -48,11 +48,9 @@ create table horarios(
 
 create table comentarios(
     id number primary key,
-    usuarioId number not nulL,
-    rutaId number not null,
+    nombreUsuarioC varchar2(50),
+    nombreRuta varchar2(50),
     comentario varchar2(250),
-    fecha timestamp not null,
-    CONSTRAINT fk_comentarios_usuarios FOREIGN KEY (usuarioId) REFERENCES usuarios(id),
-    CONSTRAINT fk_comentarios_rutas FOREIGN KEY (rutaId) REFERENCES rutas(id)
+    fecha  varchar2(12)
 );
 
