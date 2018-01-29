@@ -1,5 +1,8 @@
 package modelos;
 
+import java.time.LocalTime;
+import java.util.List;
+
 public class Ruta {
     private int id;
     private int empresaId;
@@ -9,6 +12,16 @@ public class Ruta {
     private float latitudFinal;
     private float longitudFinal;
     private int tiempoEstimado;
+
+    public List<String> getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(List<String> horarios) {
+        this.horarios = horarios;
+    }
+
+    private List<String> horarios;
 
     public Ruta(){
 

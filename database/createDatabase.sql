@@ -42,7 +42,7 @@ create table rutas(
 create table horarios(
     id number primary key,
     rutaId number not null,
-    hora timestamp not null,
+    hora varchar2(5) not null,
     CONSTRAINT fk_horarios_rutas FOREIGN KEY (rutaId) REFERENCES rutas(id)
 );
 

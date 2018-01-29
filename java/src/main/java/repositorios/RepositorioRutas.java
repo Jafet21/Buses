@@ -33,7 +33,10 @@ public class RepositorioRutas {
 
     public void eliminarRuta(int id) {
         try {
-            PreparedStatement preparedStatement = conneccion.prepareStatement("delete from rutas where id = ?");
+            PreparedStatement preparedStatement = conneccion.prepareStatement("delete from horarios where rutaId = ?");
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+            preparedStatement = conneccion.prepareStatement("delete from rutas where id = ?");
             preparedStatement.setInt(1, id);
             preparedStatement.execute();
         } catch (Exception e) {
@@ -58,10 +61,37 @@ public class RepositorioRutas {
                         resultSet.getFloat("longitudFinal"),
                         resultSet.getInt("tiempoEstimado")
                 );
+                ruta.setHorarios(getHorarios(ruta.getId()));
                 rutas.add(ruta);
             }
             return rutas;
         } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void agregarHorario(int rutaId, String horario){
+        try{
+            PreparedStatement preparedStatement = conneccion.prepareStatement("insert into horarios (id, rutaId, hora) values (seq.nextval, ?, ?)");
+            preparedStatement.setInt(1, rutaId);
+            preparedStatement.setString(2, horario);
+            preparedStatement.execute();
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    private List<String> getHorarios(int rutaId){
+        try {
+            List<String> horas = new ArrayList<>();
+            PreparedStatement preparedStatement = conneccion.prepareStatement("select * from horarios where rutaId = ?");
+            preparedStatement.setInt(1, rutaId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                horas.add(resultSet.getString("hora"));
+            }
+            return horas;
+        }catch (Exception e){
             throw new RuntimeException(e);
         }
     }

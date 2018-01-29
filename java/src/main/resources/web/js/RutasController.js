@@ -1,5 +1,6 @@
 var app= angular.module('myApp',[]);
-app.controller('namesCtrl',function ($scope, $http){
+app.controller('namesCtrl',function ($scope, $http, $httpParamSerializer){
+$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
     $http({
         url: '../obtenerRutas'
           }).then(function mySuccess(response){
@@ -7,7 +8,29 @@ app.controller('namesCtrl',function ($scope, $http){
                 },function myError(response){
                     
                 });
-    
+
+    $scope.eliminarRuta = function(){
+       $http({
+                method: 'post',
+               url: '../eliminarRuta/'+$scope.rutaSeleccionada
+                 }).then(function mySuccess(response){
+                 location.href='AdministrarRutas.html';
+                       },function myError(response){
+
+                       });
+    }
+
+    $scope.agregarHorario = function(){
+           $http({
+                           method: 'post',
+                          url: '../agregarHorario',
+                          data: $httpParamSerializer({rutaId: $scope.rutaSeleccionada, horario: $scope.horario})
+                            }).then(function mySuccess(response){
+                            location.href='AdministrarRutas.html';
+                                  },function myError(response){
+
+                                  });
+    }
 });
 
 

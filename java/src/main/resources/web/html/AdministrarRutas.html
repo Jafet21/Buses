@@ -4,16 +4,16 @@
 <head>
     <title>Administrar Rutas</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 
-    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/main.css"/>
     <link href="../css/css.css" rel="stylesheet" type="text/css"/>
-    <link rel="icon" href="../imagenes/icon.png" type="image/x-icon" />
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <link rel="icon" href="../imagenes/icon.png" type="image/x-icon"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
 </head>
 
-<body ng-app="myApp" >
+<body ng-app="myApp">
 <!-- Wrapper -->
 <div id="wrapper">
     <!-- Main -->
@@ -30,39 +30,49 @@
                 </ul>
             </header>
 
-            <br />
-            <br />
-             <div class="box" ng-controller="namesCtrl">
-                 <button onclick="location.href='RegistroRuta.html';" type="button">Registrar nueva ruta</button>
-                      <br><br>
-                        <table id="tablaRutas">
-                             <tr>
+            <br/>
+            <br/>
+            <div class="box" ng-controller="namesCtrl">
+                <button onclick="location.href='RegistroRuta.html';" type="button">Registrar nueva ruta</button>
+                <hr>
+                <table id="tablaRutas">
+                    <tr>
                         <th>Descripción</th>
                         <th>Tiempo Estimado</th>
-                        <th>Paradas</th>
-                        <th>Acciones</th>
+                        <th>Horarios</th>
                     </tr>
-                            <tr ng-repeat="x in names|filter:test">
-                                <th>{{x.descripcion}}</th>
-                                <th>{{x.tiempoEstimado}}</th>
-                            </tr>
-                        </table>
+                    <tr ng-repeat="x in names">
+                        <td>{{x.descripcion}}</td>
+                        <td>{{x.tiempoEstimado}} minutos</td>
+                        <td>{{x.horarios.join()}}</td>
+                    </tr>
+                </table>
+                <hr>
+                <h4>Opciones</h4>
+                <label> Ruta: </label>
+                <select ng-model="rutaSeleccionada">
+                    <option ng-repeat="x in names" value="{{x.id}}">{{x.descripcion}}</option>
+                </select>
+                <label> Nuevo Horario: </label>
+                <input type='text' ng-model="horario">
+                <button ng-click="eliminarRuta()" type="button">Eliminar ruta</button>
+                <button ng-click="agregarHorario()" type="button">Agregar horario</button>
 
-                    </div>
+            </div>
 
-           
+
         </div>
     </div>
 
     <!-- Sidebar -->
     <div id="sidebar">
         <div class="inner">
-           <div>
+            <div>
 
-                        <input ng-model="test" type="text" id="query" placeholder="Buscar Ruta" />
-                        
+                <input ng-model="test" type="text" id="query" placeholder="Buscar Ruta"/>
 
-                    </div>
+
+            </div>
 
             <!-- Menu -->
             <nav id="menu">
@@ -114,7 +124,7 @@
 <script src="../js/main.js"></script>
 <script src="../js/Registro.js"></script>
 <script src="../js/Empresa.js"></script>
- <script src="../js/RutasController.js"></script>
+<script src="../js/RutasController.js"></script>
 
 
 </body>

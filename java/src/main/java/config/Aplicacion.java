@@ -52,7 +52,8 @@ public class Aplicacion {
         //Rutas
         post("/registrarRuta", controladorRutas::registrarRuta);//recibe el formulario de registro de ruta
         get("/obtenerRutas", controladorRutas::obtenerRutas);//devuelve empresas en json para ajax
-        post("/eliminarRuta", controladorRutas::eliminarRuta);//devuelve empresas en json para ajax
+        post("/eliminarRuta/:rutaId", controladorRutas::eliminarRuta);//devuelve empresas en json para ajax
+        post("/agregarHorario", controladorRutas::agregarHorario);
 
         //Usuario logueo
         get("/usuarioLogeo", controladorUsuarios::usuarioLogeo);//devuelve empresas en json para ajax
